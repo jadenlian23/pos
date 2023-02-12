@@ -1,0 +1,479 @@
+Manager:
+  Log_in:
+  Main_screen:
+  Caja:
+  Inventory:
+  Users:
+  Create_Users:
+
+
+
+  ########firs window  login 
+<Log_in>:
+  name:"log_in"
+  GridLayout:
+    rows:3
+    cols:2
+    size_hint:None,None
+    pos:200,250
+    Label:
+      size_hint:None,None
+      text:"USERNAME"
+      bold:True
+      size:"200dp","40dp"
+    TextInput:
+      size_hint:None,None
+      multiline:False
+      size:"250dp","40dp"
+    Label:
+      text:"PASSWORD"
+      bold:True
+      size_hint:None,None
+      size:"200dp","40dp"
+
+    TextInput:
+      size_hint:None,None
+      multiline:False
+      size:"250dp","40dp"
+      password:True
+    Button:
+      size_hint:None,None
+      text:"LOG IN"
+      size:"100dp","50dp"
+      pos:100,200
+      on_release:
+        app.root.current="main_screen"
+        root.manager.transition.direction="left"
+
+
+   ####### main window
+<Main_screen>:
+  name:"main_screen"
+  GridLayout:
+    cols:1
+    rows:2
+    # the top label 
+    BoxLayout:
+      size_hint:None,None
+      size:root.width,"30dp"
+      color:"green"
+      Label:
+        text:"MAIN SCREEN"
+     #buttons
+    GridLayout:
+      margin:30
+      cols:5
+      rows:2     
+
+      Button:
+        text:"CAJA"
+        on_release:
+          app.root.current="caja"
+          root.manager.transition.direction="left"
+
+      Button:
+        text:"INVENTARIO"
+        # background_color:(0,0,1,1)
+        on_release:
+          app.root.current="inventory"
+          root.manager.transition.direction="up"
+      Button:
+        text:"USUARIOS"
+        #background_color:(0,0,1,1)
+        on_release:
+          app.root.current="users"
+          root.manager.transition.direction="up"
+
+
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+       # background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"LOG OUT"
+        background_color:(1,0,0,1)
+        on_release:
+          app.root.current="log_in"
+          root.manager.transition.direction="right"
+ 
+
+######################  users window
+<Users>:
+  name:"users"
+  GridLayout:
+    cols:1
+    rows:2
+    # the top label 
+    BoxLayout:
+      size_hint:None,None
+      size:root.width,"30dp"
+      color:"green"
+      Label:
+        text:"USUARIOS"
+     #buttons
+    GridLayout:
+      margin:30
+      cols:5
+      rows:2     
+
+
+      Button:
+        text:"CREAR USUARIO"
+        # background_color:(0,0,1,1)
+        on_release:
+          app.root.current="create_users"
+          root.manager.transition.direction="up"
+      Button:
+        text:"BORRAR USUARIO"
+        #background_color:(0,0,1,1)
+        on_release:
+          app.root.current="users"
+          root.manager.transition.direction="up"
+
+
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+       # background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"POS"
+        #background_color:(0,0,1,1)
+      Button:
+        text:"LOG OUT"
+        background_color:(1,0,0,1)
+        on_release:
+          app.root.current="log_in"
+          root.manager.transition.direction="right"
+
+
+
+
+
+#################### create users
+<Create_Users>:
+  name:"create_users"
+  GridLayout:
+    rows:2
+    cols:2
+    Label:
+      size_hint:None,None
+      size:"150dp","30dp"
+      text:"AGREGAR USUARIO"
+      bold:True
+    Button:
+      size_hint:None,None
+      size:"70dp","30dp"
+      background_color:(1,0,0,1)
+      text:"SALIR"
+      on_release:
+        app.root.current="users"
+        root.manager.transition.direction="down"
+
+    GridLayout:
+      cols:1
+      rows:2
+      Image:
+        source: "me.jpg"
+        allow_stretch:True
+        keep_ratio:False
+     
+      GridLayout:
+        size_hint:None,None
+        size:root.width,"200dp"
+        rows:6
+        cols:2
+        Label:
+          text:"NOMBRE"
+        TextInput:
+          multiline:False
+        Label:
+          text:"CONTRASENA"
+        TextInput:
+          multiline:False
+          password:True
+               #privilleges
+        Label:
+          text:"CONTRASENA"
+        TextInput:
+          multiline:False
+          password:True
+
+
+
+        Label:
+          text:"PRIVILEGIOS"
+        GridLayout:
+          cols:4
+          Label:
+            text:"ADMIN"
+          CheckBox:
+            on_active:root.checkbox_click(self,self.active)
+          Label:
+            text:"EMPLEADO"
+          CheckBox:
+               #end of privilleges
+        Label:
+          text:"precio"
+        TextInput:
+          multiline:False
+
+
+
+        Button:
+          text:"AGREGAR"
+
+
+
+
+
+
+
+ #################invetory window
+<Inventory>:
+  name:"inventory"
+  GridLayout:
+    rows:2
+    cols:2
+    Label:
+      size_hint:None,None
+      size:"150dp","30dp"
+      text:"AGREGAR ARTICULO"
+      bold:True
+    Button:
+      size_hint:None,None
+      size:"70dp","30dp"
+      background_color:(1,0,0,1)
+      text:"SALIR"
+      on_release:
+        app.root.current="main_screen"
+        root.manager.transition.direction="down"
+
+
+    GridLayout:
+      cols:1
+      rows:2
+      TextInput:
+        readonly:True        
+      
+      GridLayout:
+        size_hint:None,None
+        size:root.width,"80dp"
+        rows:5
+        cols:2
+        Label:
+          text:"nombre"
+        TextInput:
+          multiline:False
+        Label:
+          text:"precio"
+        TextInput:
+          multiline:False
+        Button:
+          text:"AGREGAR"
+ 
+
+
+
+
+
+   ####################### caja
+<Caja>:
+  name:"caja"
+  GridLayout:
+    cols:1
+    rows:5
+    #top strip  
+    #1 top letters
+    BoxLayout:    
+      size_hint:1,.04
+      Label:
+        text:"1"
+      Label:
+        text:"2"
+      Label:
+        text:"3"
+ 
+
+    #2 top buttons
+    BoxLayout:
+      size_hint:1,.1
+      Button:
+        text:"cash"
+        background_color:(0,0,1,1)
+      Button:
+        text:"debito"
+        background_color:(0,0,1,1)
+      Button:
+        text:"credito"
+        background_color:(0,0,1,1)
+      Button:
+        text:"4"
+        background_color:(0,0,1,1)
+      Button:
+        text:"5"
+        background_color:(0,0,1,1)
+      Button:
+        text:"6"
+        background_color:(0,0,1,1)
+      Button:
+        text:"7"
+        background_color:(0,0,1,1)
+      Button:
+        text:"8"
+        background_color:(0,0,1,1)
+      Button:
+        text:"9"
+        background_color:(0,0,1,1)
+      Button:
+        text:"SALIR"
+        background_color:(1,0,0,1)
+        on_release:
+          app.root.current="main_screen"
+          root.manager.transition.direction="right"
+
+ 
+
+
+    #3  text to describe
+    BoxLayout:
+      size_hint:1,.04
+      Label:
+        text:"REFERENCIA"       
+        bold:True
+      Label:
+        text:"DESCRIPCION"       
+        bold:True
+      Label:
+        text:"DISPONIBLE"       
+        bold:True
+      Label:
+        text:"PRECIO VENTA"       
+        bold:True
+      Label:
+        text:"a"       
+        bold:True   
+
+
+    #4 area that shows items
+    GridLayout:
+      cols:5
+      Label:
+        color:"black"
+        text:root.referencia
+        readonly:True
+        background_color:(11,1,1,1)
+        canvas.before:
+          Color:
+            rgba:self.background_color
+          Rectangle:
+            size:self.size
+            pos:self.pos
+      Label:
+        color:"black"
+        text:root.descripcion
+        readonly:True
+        background_color:(11,1,1,1)
+        canvas.before:
+          Color:
+            rgba:self.background_color
+          Rectangle:
+            size:self.size
+            pos:self.pos
+      Label:
+        color:"black"
+        text:root.disponible
+        readonly:True
+        background_color:(11,1,1,1)
+        canvas.before:
+          Color:
+            rgba:self.background_color
+          Rectangle:
+            size:self.size
+            pos:self.pos
+      Label:
+        color:"black"
+        readonly:True
+        text:root.precio
+        background_color:(11,1,1,1)
+        canvas.before:
+          Color:
+            rgba:self.background_color
+          Rectangle:
+            size:self.size
+            pos:self.pos
+      Label:
+        color:"black"
+        readonly:True
+        text:"d"
+        background_color:(1,1,1,1)
+        canvas.before:
+          Color:
+            rgba:self.background_color
+          Rectangle:
+            size:self.size
+            pos:self.pos
+
+    #5 bottom part
+    GridLayout:
+      size_hint:1,.5
+      cols:28
+      #leftside
+      GridLayout:
+        rows:5
+        ##input box
+        TextInput:
+          multiline:False
+          text:""
+          on_text_validate: root.print_all_products()
+          on_text:root.products(self)
+        Label:
+          text:"a"
+        Label:
+          text:"a"
+        Label:
+          text:"a"
+        Label:
+          text:"a"
+  
+      # rightside 
+      GridLayout:
+        rows:5   
+        cols:2
+        Label:
+          text:"SUB-TOTAL :"
+        Label:
+          text:"0"
+        Label:
+          text:"TAXES :"
+        Label:
+          text:"0"
+        Label:
+          text:"TOTAL :"
+        Label:
+          text:"0"
+  
